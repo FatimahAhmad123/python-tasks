@@ -1,6 +1,5 @@
 # IDE and editor-specific files
 
 .vscode/
-.idea/
-.vscode/
-.pyc
+
+task2try.py
