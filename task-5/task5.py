@@ -2,29 +2,39 @@
 import os
 
 # Define the file path
-file_path = "~/my_dummy_file.txt"
-expanded_path = os.path.expanduser(file_path)
-# Step 1: Check if the file exists, and if not, create it
+file_path = "/home/nabeel/Desktop/python-tasks/task-5/my_dummy_file.txt" 
+
 if not os.path.exists(file_path):
-    with open(file_path, "w") as file:
-        file.write("Line 1.")
+    try:
+        with open(file_path, "w") as file: # "w" for writing to file
+            file.write("New file created.")
+        print(f"File created: {file_path}")
+    except Exception as e:
+        print(f"Error creating the file: {str(e)}")
+        
+# Add some text to the file
+try:
+    with open(file_path, "a") as file: # "a" for append mode
+        file.write("\nNew line added.")
+    print("New line added to the file.")
+except Exception as e:
+    print(f"Error adding text to the file: {str(e)}")
 
-# Step 2: Add some text to the file
-with open(file_path, "a") as file:
-    file.write("\nLine 2.")
+# Run the chmod command to change permissions
+try:
+    os.system(f"chmod a=- {file_path}")
+    print("File permissions changed.")
+except Exception as e:
+    print(f"Error changing file permissions: {str(e)}")
 
-# Step 3: Run the chmod command
-os.system(f"chmod a=- {file_path}")
 
-# Step 4: Attempt to read and write to the file to identify issues
+# Open and read the file
 try:
     with open(file_path, "r") as file:
         content = file.read()
-    with open(file_path, "a") as file:
-        file.write("\nLine 3.")
-    print("File read and write successful.")
+    print("File content:")
+    print(content)
+except FileNotFoundError:
+    print(f"File not found: {file_path}")
 except Exception as e:
-    print(f"Error: {str(e)}")
-
-# Step 5: Create another script to resolve the issues
-# (This part involves creating another Python script to fix any issues)
+    print(f"Error reading the file: {str(e)}")
