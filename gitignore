@@ -1,7 +1,6 @@
-# Json files
+# IDE and editor-specific files
 
-\*.json
-
-# Readme
-
-\*.md
+.vscode/
+.idea/
+.vscode/
+.pyc
