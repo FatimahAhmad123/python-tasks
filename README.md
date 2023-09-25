@@ -24,14 +24,14 @@ It is expected to face issues when you modify permissions for the files, so run 
 Read data from a text file, convert it to a list, calculate squares and cubes, and create a graph of square vs. cube using matplotlib.
 
 ### Instructions:
-First make a virtual environment in the folder and then run the script. for the virtual environment first make sure it is installed in your system. Then run the command:
+First make a virtual environment in the folder and then run the script. for the virtual environment first make sure it is installed in your system. Then run the commands:
 
-'''python -m venv myenv'''
+```bash
+# Create a virtual environment
+python -m venv myenv
 
-Then activate the virtual environment
+# Activate the virtual environment
+source myenv/bin/activate
 
-'''source myenv/bin/activate'''
-
-To deactivate:
-
-'''deactivate'''
+# Deactivate the virtual environment
+deactivate
