@@ -8,5 +8,6 @@ my_dummy_file.txt
 
 virtual-task-6/
 
-server.log
 client.log
+
+server.log

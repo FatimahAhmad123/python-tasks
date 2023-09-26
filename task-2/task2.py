@@ -11,7 +11,13 @@ byte_order = sys.byteorder
 print("Byte Order:", byte_order, "endian")
 
 # Virtualization
-print("Virtualization: ", platform.machine())
+try:
+    lscpu_output = subprocess.check_output(["lscpu"], universal_newlines=True)
+    virtualization = (
+        "Supported" if "Virtualization: VT-x" in lscpu_output else "Not Supported"
+    )
+except subprocess.CalledProcessError:
+    virtualization = "Not Supported"
 
 # Extract CPUs count
 CPUs = os.cpu_count()
@@ -45,11 +51,13 @@ print(f"L1d Cache Size: ", cpu_info.get("l1_data_cache_size", "No info"))
 print(f"L2 Cache Size: ", cpu_info.get("l2_cache_size", "No info"))
 print(f"L3 Cache Size: ", cpu_info.get("l3_cache_size", "No info"))
 
-# # Get virtualization support using lscpu command
-# try:
-#     lscpu_output = subprocess.check_output(["lscpu"], universal_newlines=True)
-#     virtualization = (
-#         "Supported" if "Virtualization: VT-x" in lscpu_output else "Not Supported"
-#     )
-# except subprocess.CalledProcessError:
-#     virtualization = "Not Supported"
+# Distributor ID, Distributor Description, Distributor codename
+with open("/etc/os-release", "r") as os_release_file:
+    os_release_info = {}
+    for line in os_release_file:
+        key, value = line.strip().split("=")
+        os_release_info[key] = value.strip('"')
+
+print(f"Distributor ID:",os_release_info.get("ID", ""))
+print(f"Distributor Description:",os_release_info.get("PRETTY_NAME", ""))
+print(f"Distributor codename:",os_release_info.get("VERSION_CODENAME", ""))

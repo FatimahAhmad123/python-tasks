@@ -4,6 +4,7 @@ import os
 # Define the file path
 file_path = "/home/nabeel/Desktop/python-tasks/task-5/my_dummy_file.txt" 
 
+#Check if exixts otherwise create file
 if not os.path.exists(file_path):
     try:
         with open(file_path, "w") as file: # "w" for writing to file

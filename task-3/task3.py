@@ -5,8 +5,6 @@ import json
 with open("Input.json", "r") as file:
     data = json.load(file)
 
-# print(data)
-
 # Create a dictionary to group people by occupation
 professions = {}
 for person in data:
