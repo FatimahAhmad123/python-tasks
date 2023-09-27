@@ -27,9 +27,9 @@ if __name__ == "__main__":
         loop = asyncio.get_event_loop()
         loop.set_debug(1)
         d1, d2, d3 = loop.run_until_complete(main())
-        # print(d1.result())
+        
     except Exception as e:
-        # logging...etc
+        
         pass
     finally:
         loop.close()
