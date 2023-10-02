@@ -3,15 +3,12 @@ import argparse
 import math
 
 # Create an ArgumentParser object
-parser = argparse.ArgumentParser(
-    description="Calculate the distance between two coordinates."
-)
+parser = argparse.ArgumentParser()
 
 # Add an argument for the coordinates
 parser.add_argument(
-    "--coordinates",
+    "coordinates",
     type=str,
-    required=True,
     help="Coordinates in the format 'x1,y1,x2,y2'",
 )
 

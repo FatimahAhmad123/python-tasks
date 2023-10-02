@@ -35,3 +35,13 @@ source myenv/bin/activate
 
 # Deactivate the virtual environment
 deactivate
+```
+
+## Task 7: Parallel Task Execution
+Two Python scripts to find divisible numbers in specified ranges both synchronously and asynchronously. Measure and log the time taken for execution.
+
+## Task 8: File Statistics with Numpy
+Python sript to calculate various statistics (mean, median, max, min, etc.) for a text file's contents using the numpy module.
+
+## Task 9: Websockets Client-Server Application
+Python scripts to develop a client-server application using websockets. The client reads JSON data, sends messages to the server, and receives responses with timestamps. Messages are logged.
