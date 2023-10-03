@@ -25,4 +25,4 @@ x1, y1, x2, y2 = map(float, coordinates_str.split(","))
 distance = math.dist([x1, y1], [x2, y2])
 
 # Print the result
-print(f"The distance between ({x1}, {y1}) and ({x2}, {y2}) is {distance:.2f} units.")
+print(f"The distance between ({x1}, {y1}) and ({x2}, {y2}) is {distance:.3f} units.")

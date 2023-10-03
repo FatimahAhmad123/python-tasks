@@ -7,4 +7,4 @@ for num in range(2000, 3601):
         result.append(num)
 
 
-print(*result, sep=",")  # * used to unpack list
+print(*result, sep=',')  # * used to unpack list
