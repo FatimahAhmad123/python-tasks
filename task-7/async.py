@@ -7,7 +7,7 @@ import time
 logging.basicConfig(filename="async.log", level=logging.INFO)
 
 async def find_divisibles(inrange, div_by):
-    logging.info("finding nums in range {} divisible by {}".format(inrange, div_by))
+    logging.info(f"Finding numbers in range {inrange} divisible by {div_by}")
     located = []
     
     start_time = time.time()  
@@ -15,13 +15,13 @@ async def find_divisibles(inrange, div_by):
     for i in range(inrange):
         if i % div_by == 0:
             located.append(i)
-        if i % 5000 == 0:
+        if i % 5000 == 0:  # every 5000 iterations sleep to introduce asynchronous pauses and prevent blocking the event loop
             await asyncio.sleep(0.0)
             
     end_time = time.time()  # Record the end time
     elapsed_time = end_time - start_time  # Calculate elapsed time
 
-    logging.info("Done w/ nums in range {} divisible by {} (Time taken: {:.4f} seconds)".format(inrange, div_by, elapsed_time))
+    logging.info(f"Done with numbers in range {inrange} divisible by {div_by} (Time taken: {elapsed_time:.4f} seconds)")
     return located
 
 async def main():
@@ -35,7 +35,7 @@ async def main():
 if __name__ == "__main__":
     try:
         loop = asyncio.get_event_loop()
-        loop.set_debug(0)
+        loop.set_debug(0)  # Turning off debug
         d1, d2, d3 = loop.run_until_complete(main())
         
     except Exception as e:

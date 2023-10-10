@@ -6,18 +6,18 @@ import time
 logging.basicConfig(filename="sync.log", level=logging.INFO)
 
 def find_divisibles(inrange, div_by):
-    logging.info("Finding numbers in range {} divisible by {}".format(inrange, div_by))
+    logging.info(f"Finding numbers in range {inrange} divisible by {div_by}")
     located = [] 
     start_time = time.time()  # Record the start time
 
     for i in range(inrange):
-        if i % div_by == 0:
+        if i % div_by == 0: # checks if current number is divisible by div_by
             located.append(i)
             
     end_time = time.time()  # Record the end time
     elapsed_time = end_time - start_time  # Calculate elapsed time
     
-    logging.info("Done with numbers in range {} divisible by {} (Time taken: {:.4f} seconds)".format(inrange, div_by, elapsed_time))
+    logging.info(f"Done with numbers in range {inrange} divisible by {div_by} (Time taken: {elapsed_time:.4f} seconds)")
     return located
 
 def main():
@@ -29,9 +29,6 @@ def main():
 if __name__ == "__main__":
     try:
         d1, d2, d3 = main()
-        # print(d1)
-        # print(d2)
-        # print(d3)
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         pass

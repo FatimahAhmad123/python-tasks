@@ -6,7 +6,7 @@ file_path = "/home/nabeel/Desktop/python-tasks/task-5/my_dummy_file.txt"
 
 # Modify the file permissions to allow reading
 
-os.system(f"chmod +r {file_path}")
+os.system(f"chmod 666 {file_path}")
 print("File permissions modified to allow reading.")
 
 # Attempt to read the file

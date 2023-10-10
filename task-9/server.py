@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 import asyncio
 import websockets
-import json
 import datetime
 import logging
 
 # Configure the logging
-logging.basicConfig(filename="server.log", level=logging.INFO)
+logging.basicConfig(filename="server.log", level=logging.INFO)  # configuring the logging system.
 
-async def server_handler(websocket, path):
+async def server_handler(websocket):  # coroutine
     async for message in websocket:
         # Append a timestamp to the received message
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

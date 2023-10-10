@@ -4,8 +4,9 @@ import subprocess
 
 output = subprocess.run(['lscpu'], stdout=subprocess.PIPE, text=True)
 output_text = output.stdout
+#print(output_text)
 
-output_dist= subprocess.run(['lsb_release','-a'], stdout=subprocess.PIPE, text=True)
+output_dist= subprocess.run('lsb_release -a', stdout=subprocess.PIPE, text=True, shell=True)
 output_dist_info = output_dist.stdout
 
 cpu_info = {}
@@ -14,8 +15,9 @@ dist_info = {}
 for line in output_text.splitlines():
     key, value = line.strip().split(":")
     cpu_info[key] = value.strip()
+    
 
-print(f"Byte Order:",cpu_info.get("Byte Order", ""))
+print(f"Byte Order:",cpu_info.get("Byte Order", "")) # value exists so returns byte order otherwise returns empty string
 print(f"CPU(s):",cpu_info.get("CPU(s)", ""))
 print(f"Model Name:",cpu_info.get("Model name", ""))
 print(f"CPU Max frequency:",cpu_info.get("CPU max MHz", ""))

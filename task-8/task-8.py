@@ -5,7 +5,7 @@ import numpy as np
 def calculate_statistics(file_path):
 
         # Reading data from the text file
-    data = np.loadtxt(file_path)
+    data = np.loadtxt(file_path) # load data from a text file, provided that each row in the file has the same number of features or values 
 
     # Print the calculated statistics
     print("Mean:",np.mean(data))

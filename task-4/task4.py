@@ -7,8 +7,26 @@ parser = argparse.ArgumentParser()
 
 # Add an argument for the coordinates
 parser.add_argument(
-    "coordinates",
-    type=str,
+    "--x1",
+    type=float,
+    help="Coordinates in the format 'x1,y1,x2,y2'",
+)
+
+parser.add_argument(
+    "--y1",
+    type=float,
+    help="Coordinates in the format 'x1,y1,x2,y2'",
+)
+
+parser.add_argument(
+    "--x2",
+    type=float,
+    help="Coordinates in the format 'x1,y1,x2,y2'",
+)
+
+parser.add_argument(
+    "--y2",
+    type=float,
     help="Coordinates in the format 'x1,y1,x2,y2'",
 )
 
@@ -16,10 +34,13 @@ parser.add_argument(
 args = parser.parse_args()
 
 # Extract the coordinates as a string
-coordinates_str = args.coordinates
+x1 = args.x1
+x2 = args.x2
+y1 = args.y1
+y2 = args.y2
 
 # Split the string into individual values
-x1, y1, x2, y2 = map(float, coordinates_str.split(","))
+# x1, y1, x2, y2 = map(float, coordinates_str.split(","))
 
 # Calculate the distance
 distance = math.dist([x1, y1], [x2, y2])
