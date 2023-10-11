@@ -15,8 +15,7 @@ async def client():   # client coroutine
             messages = json.load(json_file)
 
         for message_obj in messages:
-            method = message_obj["method"]
-            message = json.dumps({"jsonrpc": "2.0", "method": method})  # for creating json formatted string
+            message = json.dumps(message_obj)  # for creating json formatted string
 
             # Log the message before sending
             logging.info(f"Sending message: {message}")
@@ -24,6 +23,8 @@ async def client():   # client coroutine
             
             await websocket.send(message)
             response = await websocket.recv()
+            # response_time= json.loads(response)
+            # print(response_time["time_stamp"])
             end_time = datetime.datetime.now()
             elapsed_time = end_time - start_time
 
